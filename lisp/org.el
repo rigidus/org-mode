@@ -9955,7 +9955,10 @@ according to FMT (default from `org-email-link-description-format')."
 	(cond ((string-match (org-image-file-name-regexp) link) link)
 	      ((string-match org-link-types-re link)
 	       (concat (match-string 1 link)
-		       (org-link-escape (substring link (match-end 1)))))
+		       ;; (org-link-escape
+			(substring link (match-end 1))
+			;; )
+		       ))
 	      (t (org-link-escape link))))
   (concat "[[" link "]"
 	  (if description (concat "[" description "]") "")
